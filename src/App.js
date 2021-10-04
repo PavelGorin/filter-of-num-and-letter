@@ -11,40 +11,32 @@ function App() {
 
 
   const addResult = (userInput) => {
+
+    const countFunction = (res, setResult) => {
+      let counter = 1;
+      for (const i in res) {
+        if (res[i].result === userInput) {
+          counter++;
+        }
+      }
+      const newItem = {
+        result: userInput,
+        count: counter
+      }
+      setResult([...res, newItem])
+    }
+
     if (/^[A-Za-zА-яа-я]*$/.test(userInput)) {
-      const newItemLet = {
-        id: Math.random().toString(36).substr(2, 9),
-        result: userInput,
 
-      }
-      setResultsLet([...resultLet, newItemLet])
+      countFunction(resultLet, setResultsLet);
+
     } else if (/^[\d]*$/.test(userInput)) {
-      const newItemNum = {
-        id: Math.random().toString(36).substr(2, 9),
-        result: userInput,
 
-      }
-      setResultsNum([...resultNum, newItemNum])
+      countFunction(resultNum, setResultsNum);
+
     } else if (/^[A-Za-zА-яа-я0-9]*$/.test(userInput)) {
-      const newItemAll = {
-        id: Math.random().toString(36).substr(2, 9),
-        result: userInput,
 
-      }
-      setResultsAll([...resultAll, newItemAll])
-      const arrCount = []
-      for (var i of resultAll) {
-        if (arrCount.indexOf(i) === -1) {
-          arrCount.push(i)
-        }
-      }
-      for (var x of arrCount) {
-        let count = 0;
-        for (i of resultAll) {
-          if (i === x) { count++; }
-        }
-        resultAll.push(`${x} : ${count}`);
-      }
+      countFunction(resultAll, setResultsAll);
 
     }
   }
@@ -63,8 +55,7 @@ function App() {
           {resultLet.map((result) => {
             return (
               <Result
-                result={result}
-                key={result.id}
+                results={result}
               />
             )
           })}
@@ -74,8 +65,7 @@ function App() {
           {resultNum.map((result) => {
             return (
               <Result
-                result={result}
-                key={result.id}
+                results={result}
               />
             )
           })}
@@ -84,8 +74,7 @@ function App() {
           {resultAll.map((result) => {
             return (
               <Result
-                result={result}
-                key={result.id}
+                results={result}
               />
             )
           })}
