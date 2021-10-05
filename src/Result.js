@@ -1,11 +1,11 @@
-function Result({results}) {
+function Result({ results }) {
   return (
-  <>
-  <p className="result__text" >
-  {results.result} : {results.count}
-  </p> 
-  </>
+    <>
+      <p className="result__text" >
+        {results.result} : {results.count}
+      </p>
+    </>
   )
-  }
-   
-  export default Result;
+}
+
+export default Result;
