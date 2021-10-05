@@ -20,6 +20,7 @@ function App() {
         }
       }
       const newItem = {
+        id: Math.random().toString(36).substr(2, 9),
         result: userInput,
         count: counter
       }
@@ -56,6 +57,7 @@ function App() {
             return (
               <Result
                 results={result}
+                key={result.id}
               />
             )
           })}
@@ -66,6 +68,7 @@ function App() {
             return (
               <Result
                 results={result}
+                key={result.id}
               />
             )
           })}
@@ -75,6 +78,7 @@ function App() {
             return (
               <Result
                 results={result}
+                key={result.id}
               />
             )
           })}
