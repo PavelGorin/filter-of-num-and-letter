@@ -27,7 +27,7 @@ function App() {
       setResult([...res, newItem])
     }
 
-    if (/^[A-Za-zА-яа-я]*$/.test(userInput)) {
+    if (/^[A-Za-zА-ЯЁа-яё]*$/.test(userInput)) {
 
       countFunction(resultLet, setResultsLet);
 
@@ -35,7 +35,7 @@ function App() {
 
       countFunction(resultNum, setResultsNum);
 
-    } else if (/^[A-Za-zА-яа-я0-9]*$/.test(userInput)) {
+    } else if (/^[\w\W]*$/.test(userInput)) {
 
       countFunction(resultAll, setResultsAll);
 

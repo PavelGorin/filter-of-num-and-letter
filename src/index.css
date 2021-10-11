@@ -24,7 +24,9 @@ body {
   height: 250px;
   border: solid 2px brown;
   border-radius: 10px;
-   
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
   }
    
   .grid__box_white {
