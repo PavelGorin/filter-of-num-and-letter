@@ -12,7 +12,6 @@ function App() {
   let resultNumOut = {};
   let resultAllOut = {};
 
-  console.log(resultLet)
 
   const addResult = (userInput) => {
 
@@ -46,17 +45,19 @@ function App() {
         ++result[a];
       }
       else { result[a] = 1; }
+    }
+    let z = [];
+    for (var keys in result) {
+      z.push(keys + ":" + result[keys]);
 
     }
-    for (var key in result) {
-      console.log(result);
-      console.log(key);
-      return (
-        <Result
-          results={key + ":" + result[key]}
-          key={Math.random().toString(36).substr(2, 9)}
-        />);
-    }
+    console.log(z);
+    return z.map((item) => {
+      return (<Result
+        results={item}
+        key={Math.random().toString(36).substr(2, 9)}
+      />);
+    })
   }
 
   return (
