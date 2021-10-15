@@ -2,7 +2,7 @@ function Result({ results }) {
   return (
     <>
       <p className="result__text" >
-        {results.result} : {results.count}
+        {results}
       </p>
     </>
   )
